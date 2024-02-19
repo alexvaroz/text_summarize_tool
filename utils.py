@@ -56,7 +56,7 @@ def get_tf_idf(sentences):
     tfidf = tfidf.toarray()
     centroid_vector = tfidf.sum(0)
     centroid_vector = np.divide(centroid_vector, centroid_vector.max())
-    feature_names = vectorizer.get_feature_names()
+    feature_names = vectorizer.get_feature_names_out()
     relevant_vector_indices = np.where(centroid_vector > 0.3)[0]
     word_list = list(np.array(feature_names)[relevant_vector_indices])
     return word_list
